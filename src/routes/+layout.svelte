@@ -10,6 +10,7 @@
 
 <div class="app">
 	<header class="header">
+		<a href="#main" class="skip-link">Skip to content</a>
 		<div class="header__align-left">
 			<img src={logo} alt="sneakers" class="logo" />
 			<Navigation />
@@ -24,7 +25,7 @@
 		</div>
 	</header>
 
-	<main class="wrapper">
+	<main class="wrapper" id="main">
 		<slot />
 	</main>
 </div>
