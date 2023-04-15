@@ -1,6 +1,7 @@
 <script>
 	import Gallery from "../lib/Gallery.svelte"
 	import Counter from "../lib/Counter.svelte"
+	import Carousel from "../lib/Carousel.svelte"
 
 	import iconCart from "../lib/images/icon-cart.svg"
 </script>
@@ -8,6 +9,10 @@
 <svelte:head>
 	<title>Frontend Mentor | E-commerce product page</title>
 </svelte:head>
+
+<div class="carousel">
+	<Carousel />
+</div>
 
 <div class="gallery">
 	<Gallery />
@@ -38,3 +43,20 @@
 		<span class="button__text">Add to cart</span>
 	</button>
 </section>
+
+<style>
+	.gallery {
+		/* Will be changed with media query */
+		display: none;
+	}
+
+	@media (min-width: 40rem) {
+		.carousel {
+			display: none;
+		}
+
+		.gallery {
+			display: block;
+		}
+	}
+</style>
