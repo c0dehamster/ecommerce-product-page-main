@@ -12,8 +12,8 @@
 	<header class="header">
 		<a href="#main" class="skip-link">Skip to content</a>
 		<div class="header__align-left">
-			<img src={logo} alt="sneakers" class="logo" />
 			<Navigation />
+			<img src={logo} alt="sneakers" class="logo" />
 		</div>
 
 		<div class="header__align-right">
@@ -29,3 +29,26 @@
 		<slot />
 	</main>
 </div>
+
+<style>
+	.header,
+	.header__align-left,
+	.header__align-right {
+		display: flex;
+		align-items: center;
+	}
+
+	.header {
+		justify-content: space-between;
+	}
+
+	.skip-link {
+		position: absolute; /* Will be hidden later */
+	}
+
+	@media screen and (min-width: 40rem) {
+		.header__align-left {
+			flex-direction: row-reverse;
+		}
+	}
+</style>
