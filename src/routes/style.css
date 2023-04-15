@@ -110,6 +110,12 @@ p {
 	font-weight: var(--font-weight-bold);
 }
 
+.button,
+.button-icon,
+.link {
+	cursor: pointer;
+}
+
 .button {
 	position: relative;
 
@@ -126,13 +132,15 @@ p {
 
 	font-size: var(--font-size-400);
 	font-weight: var(--font-weight-bold);
-
-	cursor: pointer;
 }
 
 .button-icon {
 	background: transparent;
 	border: none;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .button__text {
