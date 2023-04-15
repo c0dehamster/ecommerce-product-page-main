@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
 /* Box sizing rules, remove default paddings and margins */
 *,
 *::before,
@@ -59,4 +61,32 @@ select {
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
 	}
+}
+
+/* Custom properties */
+
+:root {
+	--color-primary-200: hsl(25, 100%, 94%);
+	--color-pimary-400: hsl(26, 100%, 55%);
+
+	--color-neutral-100: hsl(0, 0%, 100%);
+	--color-neutral-200: hsl(223, 64%, 98%);
+	--color-neutral-400: hsl(220, 14%, 75%);
+	--color-neutral-600: hsl(219, 9%, 45%);
+	--color-neutral-800: hsl(220, 13%, 13%);
+	--color-neutral-900: hsl(0, 0%, 0%);
+
+	--font-size-400: 1rem;
+	--font-size-500: 1.68rem;
+	--font-size-600: 1.75rem;
+	--font-size-900: 2.625rem;
+
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+}
+
+/* General styling */
+
+body {
+	font-family: "Kumbh Sans", sans-serif;
 }
