@@ -90,3 +90,69 @@ select {
 body {
 	font-family: "Kumbh Sans", sans-serif;
 }
+
+/* Untilities */
+
+.button {
+	position: relative;
+
+	height: 3.5rem;
+	border: none;
+	border-radius: 0.625rem;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--color-pimary-400);
+	color: var(--color-neutral-100);
+
+	font-size: var(--font-size-400);
+	font-weight: var(--font-weight-bold);
+
+	cursor: pointer;
+}
+
+.button__text {
+	position: relative;
+	z-index: 10;
+}
+
+.button::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 0.625rem;
+	background-color: transparent;
+	transition: 200ms ease-in-out;
+}
+
+.link {
+	text-decoration: none;
+	font-size: var(--font-size-400);
+	color: var(--color-neutral-400);
+
+	transition: 200ms ease-in-out;
+}
+
+.sr-only {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Active states */
+
+.button:hover::before,
+.button:focus::before {
+	background-color: hsl(0 0% 100% / 0.2);
+}
+
+.link:hover,
+.link:focus {
+	color: var(--color-neutral-800);
+}

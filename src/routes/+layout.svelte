@@ -10,7 +10,7 @@
 
 <div class="app">
 	<header class="header">
-		<a href="#main" class="skip-link">Skip to content</a>
+		<a href="#main" class="skip-link sr-only">Skip to content</a>
 		<div class="header__align-left">
 			<Navigation />
 			<img src={logo} alt="sneakers" class="logo" />
