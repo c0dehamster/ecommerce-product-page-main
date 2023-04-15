@@ -58,6 +58,13 @@
 		position: absolute; /* Will be hidden later */
 	}
 
+	.button--profile {
+		width: 1.5rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: transparent;
+	}
+
 	@media screen and (min-width: 40rem) {
 		.header__align-left {
 			flex-direction: row-reverse;
