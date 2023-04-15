@@ -49,6 +49,7 @@
 	}
 
 	.header {
+		position: relative;
 		padding-block: 1rem;
 		padding-inline: 1.5rem;
 		justify-content: space-between;
