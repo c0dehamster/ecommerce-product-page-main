@@ -50,8 +50,6 @@
 
 	.embla__container {
 		display: flex;
-
-		height: 100%;
 	}
 
 	.embla__slide {
