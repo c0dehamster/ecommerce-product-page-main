@@ -67,7 +67,7 @@ select {
 
 :root {
 	--color-primary-200: hsl(25, 100%, 94%);
-	--color-pimary-400: hsl(26, 100%, 55%);
+	--color-primary-400: hsl(26, 100%, 55%);
 
 	--color-neutral-100: hsl(0, 0%, 100%);
 	--color-neutral-200: hsl(223, 64%, 98%);
@@ -81,6 +81,12 @@ select {
 	--font-size-600: 1.75rem;
 	--font-size-900: 2.625rem;
 
+	--font-size-heading-responsive: clamp(
+		var(--font-size-600),
+		7.5vw,
+		var(--font-size-900)
+	);
+
 	--font-weight-regular: 400;
 	--font-weight-bold: 700;
 }
@@ -93,6 +99,17 @@ body {
 
 /* Untilities */
 
+p {
+	font-size: var(--font-size-400);
+	color: var(--color-neutral-600);
+}
+
+.heading {
+	color: var(--color-neutral-800);
+	line-height: 1.1;
+	font-weight: var(--font-weight-bold);
+}
+
 .button {
 	position: relative;
 
@@ -104,7 +121,7 @@ body {
 	align-items: center;
 	justify-content: center;
 
-	background-color: var(--color-pimary-400);
+	background-color: var(--color-primary-400);
 	color: var(--color-neutral-100);
 
 	font-size: var(--font-size-400);

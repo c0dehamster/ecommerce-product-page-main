@@ -47,11 +47,21 @@
 	.embla {
 		overflow: hidden;
 	}
+
 	.embla__container {
 		display: flex;
+
+		height: 100%;
 	}
+
 	.embla__slide {
 		flex: 0 0 100%;
 		min-width: 0;
+	}
+
+	.image {
+		aspect-ratio: 1.25;
+		object-fit: cover;
+		object-position: center;
 	}
 </style>

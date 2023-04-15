@@ -45,9 +45,62 @@
 </section>
 
 <style>
+	/* General */
+
 	.gallery {
 		/* Will be changed with media query */
 		display: none;
+	}
+
+	.product-card {
+		display: grid;
+		row-gap: 1rem;
+
+		padding: 1.5rem;
+	}
+
+	/* Product info */
+
+	.heading {
+		font-size: var(--font-size-heading-responsive);
+	}
+
+	/* Price */
+
+	.price,
+	.price__relevant {
+		display: flex;
+		align-items: center;
+	}
+
+	.price {
+		justify-content: space-between;
+	}
+
+	.price__relevant {
+		gap: 1rem;
+
+		font-weight: var(--font-weight-bold);
+	}
+
+	.price__new {
+		color: var(--color-neutral-800);
+
+		font-size: var(--font-size-600);
+	}
+
+	.price__discount {
+		padding: 0.25rem 0.5rem;
+		border-radius: 5px;
+
+		background-color: var(--color-primary-200);
+		color: var(--color-primary-400);
+	}
+
+	/* Controls */
+
+	.button {
+		gap: 1rem;
 	}
 
 	@media (min-width: 40rem) {
