@@ -31,6 +31,11 @@
 </div>
 
 <style>
+	.app,
+	.wrapper {
+		display: grid;
+	}
+
 	.header,
 	.header__align-left,
 	.header__align-right {
@@ -38,7 +43,14 @@
 		align-items: center;
 	}
 
+	.header__align-left,
+	.header__align-right {
+		gap: 1rem;
+	}
+
 	.header {
+		padding-block: 1rem;
+		padding-inline: 1.5rem;
 		justify-content: space-between;
 	}
 

@@ -113,6 +113,11 @@ body {
 	cursor: pointer;
 }
 
+.button-icon {
+	background: transparent;
+	border: none;
+}
+
 .button__text {
 	position: relative;
 	z-index: 10;

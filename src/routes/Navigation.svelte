@@ -4,11 +4,9 @@
 </script>
 
 <nav class="nav">
-	<button
-		class="nav__toggle-button"
-		style="--background-hamburger: url({iconMenu}); --background-close: url({iconClose});"
-		aria-expanded="false">
+	<button class="button-icon button-icon--nav-toggle" aria-expanded="false">
 		<span class="sr-only">Menu</span>
+		<img src={iconMenu} alt="" class="icon" />
 	</button>
 
 	<ul class="nav__list nav__list--closed">
@@ -35,24 +33,20 @@
 </nav>
 
 <style>
-	.nav__toggle-button {
+	.button-icon--nav-toggle {
 		display: none;
 	}
 
 	.nav__list {
 		display: flex;
-
 		list-style: none;
 	}
 
 	@media screen and (max-width: 40rem) {
-		.nav__toggle-button {
+		.button-icon--nav-toggle {
 			display: block;
 			position: relative;
 			z-index: 100;
-			background-image: var(--background-hamburger);
-			background-repeat: no-repeat;
-			background-color: transparent;
 		}
 
 		.nav__list--closed {
