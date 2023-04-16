@@ -12,6 +12,8 @@
 	$: cartClass = `cart ${!expanded ? "" : "cart--expanded"}`
 </script>
 
+<!-- A whole bunch of random nonsense -->
+
 <button
 	class="button-icon"
 	aria-expanded={expanded}
