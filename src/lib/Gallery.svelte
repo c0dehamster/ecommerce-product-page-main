@@ -14,28 +14,37 @@
 		<img src={image1} alt="" class="lightbox__image" />
 	</button>
 
-	<button class="thumbnail">
-		<img src={image1thumbnail} alt="" class="thumbnail__image" />
-	</button>
+	<div class="thumbnails">
+		<button class="thumbnail">
+			<img src={image1thumbnail} alt="" class="thumbnail__image" />
+		</button>
 
-	<button class="thumbnail">
-		<img src={image2thumbnail} alt="" class="thumbnail__image" />
-	</button>
+		<button class="thumbnail">
+			<img src={image2thumbnail} alt="" class="thumbnail__image" />
+		</button>
 
-	<button class="thumbnail">
-		<img src={image3thumbnail} alt="" class="thumbnail__image" />
-	</button>
+		<button class="thumbnail">
+			<img src={image3thumbnail} alt="" class="thumbnail__image" />
+		</button>
 
-	<button class="thumbnail">
-		<img src={image4thumbnail} alt="" class="thumbnail__image" />
-	</button>
+		<button class="thumbnail">
+			<img src={image4thumbnail} alt="" class="thumbnail__image" />
+		</button>
+	</div>
 </div>
 
 <style>
 	.gallery {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
 		gap: 2rem;
+
+		/* Additional layout for intermediate screen sizes */
+
+		grid-template-areas:
+			"lightbox lightbox lightbox lightbox thumbnails"
+			"lightbox lightbox lightbox lightbox thumbnails"
+			"lightbox lightbox lightbox lightbox thumbnails"
+			"lightbox lightbox lightbox lightbox thumbnails";
 	}
 
 	.lightbox,
@@ -46,6 +55,7 @@
 
 	.lightbox {
 		grid-column: span 4;
+		grid-area: lightbox;
 
 		border-radius: 1rem;
 	}
@@ -54,8 +64,32 @@
 		border-radius: 1rem;
 	}
 
+	.thumbnails {
+		display: grid;
+		gap: 2rem;
+		grid-area: thumbnails;
+	}
+
 	.thumbnail,
 	.thumbnail__image {
 		border-radius: 0.5rem;
+	}
+
+	@media screen and (min-width: 60rem) {
+		.gallery {
+			display: grid;
+			gap: 2rem;
+
+			grid-template-areas:
+				"lightbox lightbox lightbox lightbox"
+				"lightbox lightbox lightbox lightbox"
+				"lightbox lightbox lightbox lightbox"
+				"lightbox lightbox lightbox lightbox"
+				"thumbnails thumbnails thumbnails thumbnails";
+		}
+
+		.thumbnails {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 </style>

@@ -130,6 +130,13 @@
 
 		.gallery {
 			display: block;
+			padding-inline: 7.5%;
+		}
+	}
+
+	@media screen and (min-width: 60rem) {
+		.gallery {
+			padding: none;
 		}
 	}
 </style>
