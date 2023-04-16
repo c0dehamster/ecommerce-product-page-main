@@ -54,6 +54,8 @@
 	/* General */
 
 	.product-card {
+		max-width: 36rem; /* Arbitrary, to prevent weird look at intermediate screen */
+
 		display: grid;
 		row-gap: 1rem;
 
@@ -119,6 +121,12 @@
 	@media screen and (min-width: 40rem) {
 		.carousel {
 			display: none;
+		}
+
+		.price {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: start;
 		}
 	}
 </style>
