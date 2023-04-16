@@ -72,13 +72,26 @@
 		background-color: transparent;
 	}
 
-	@media screen and (min-width: 40rem) {
+	@media screen and (min-width: 50rem) {
+		.header {
+			height: 7rem;
+		}
+
 		.header__align-left {
 			flex-direction: row-reverse;
+			gap: 3.5rem;
+		}
+
+		.header__align-right {
+			gap: 2.5rem;
 		}
 	}
 
 	@media screen and (min-width: 60rem) {
+		.app {
+			gap: 5.75rem;
+		}
+
 		.wrapper {
 			max-width: 70rem;
 

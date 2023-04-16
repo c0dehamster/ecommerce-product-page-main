@@ -40,9 +40,10 @@
 	.nav__list {
 		display: flex;
 		list-style: none;
+		gap: clamp(1rem, 2.5vw, 2rem);
 	}
 
-	@media screen and (max-width: 40rem) {
+	@media screen and (max-width: 50rem) {
 		.button-icon--nav-toggle {
 			display: block;
 			position: relative;
