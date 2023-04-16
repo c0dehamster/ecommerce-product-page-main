@@ -9,7 +9,7 @@
 	<div class="purchase__info">
 		<p class="purchase__name">Fall Limited Edition Sneakers</p>
 		<p class="purchase__price">
-			$125.00 x 3<span class="purchase__total">$375.00</span>
+			$125.00 x 3 <span class="purchase__total">$375.00</span>
 		</p>
 	</div>
 
@@ -30,5 +30,9 @@
 		height: 3.125rem;
 
 		border-radius: 0.25rem;
+	}
+
+	.purchase__total {
+		font-weight: var(--font-weight-bold);
 	}
 </style>
