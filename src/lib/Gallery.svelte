@@ -30,3 +30,32 @@
 		<img src={image4thumbnail} alt="" class="thumbnail__image" />
 	</button>
 </div>
+
+<style>
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
+	}
+
+	.lightbox,
+	.thumbnail {
+		background: transparent;
+		border: none;
+	}
+
+	.lightbox {
+		grid-column: span 4;
+
+		border-radius: 1rem;
+	}
+
+	.lightbox__image {
+		border-radius: 1rem;
+	}
+
+	.thumbnail,
+	.thumbnail__image {
+		border-radius: 0.5rem;
+	}
+</style>

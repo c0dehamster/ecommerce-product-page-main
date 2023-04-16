@@ -35,6 +35,7 @@
 	.wrapper {
 		display: grid;
 		height: fit-content;
+		justify-items: center;
 	}
 
 	.header,
@@ -50,6 +51,8 @@
 	}
 
 	.header {
+		width: 100%;
+
 		position: relative;
 		padding-block: 1rem;
 		padding-inline: 1.5rem;
@@ -76,13 +79,11 @@
 	}
 
 	@media screen and (min-width: 60rem) {
-		.app {
-			padding-inline: max(11%, 4rem);
-		}
-
 		.wrapper {
+			max-width: 70rem;
+
 			grid-template-columns: 1fr 1fr;
-			column-gap: 13.5rem;
+			column-gap: 8rem;
 			align-items: center;
 
 			padding-inline: 3rem;

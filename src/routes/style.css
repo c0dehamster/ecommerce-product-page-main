@@ -95,6 +95,9 @@ select {
 /* General styling */
 
 body {
+	display: grid;
+	justify-items: center;
+
 	font-family: "Kumbh Sans", sans-serif;
 }
 
