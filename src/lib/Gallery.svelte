@@ -35,16 +35,8 @@
 
 <style>
 	.gallery {
-		display: grid;
-		gap: 2rem;
-
-		/* Additional layout for intermediate screen sizes */
-
-		grid-template-areas:
-			"lightbox lightbox lightbox lightbox thumbnails"
-			"lightbox lightbox lightbox lightbox thumbnails"
-			"lightbox lightbox lightbox lightbox thumbnails"
-			"lightbox lightbox lightbox lightbox thumbnails";
+		/* Will be changed with media query */
+		display: none;
 	}
 
 	.lightbox,
@@ -75,17 +67,31 @@
 		border-radius: 0.5rem;
 	}
 
-	@media screen and (min-width: 60rem) {
+	@media screen and (min-width: 40rem) {
 		.gallery {
 			display: grid;
 			gap: 2rem;
 
+			padding: 7.5%;
+			/* Additional layout for intermediate screen sizes */
+
+			grid-template-areas:
+				"lightbox lightbox lightbox lightbox thumbnails"
+				"lightbox lightbox lightbox lightbox thumbnails"
+				"lightbox lightbox lightbox lightbox thumbnails"
+				"lightbox lightbox lightbox lightbox thumbnails";
+		}
+	}
+
+	@media screen and (min-width: 60rem) {
+		.gallery {
 			grid-template-areas:
 				"lightbox lightbox lightbox lightbox"
 				"lightbox lightbox lightbox lightbox"
 				"lightbox lightbox lightbox lightbox"
 				"lightbox lightbox lightbox lightbox"
 				"thumbnails thumbnails thumbnails thumbnails";
+			padding: 0;
 		}
 
 		.thumbnails {

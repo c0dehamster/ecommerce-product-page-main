@@ -14,9 +14,7 @@
 	<Carousel />
 </div>
 
-<div class="gallery">
-	<Gallery />
-</div>
+<Gallery />
 
 <section class="product-card">
 	<p class="manufacturer">Sneaker Company</p>
@@ -54,11 +52,6 @@
 
 <style>
 	/* General */
-
-	.gallery {
-		/* Will be changed with media query */
-		display: none;
-	}
 
 	.product-card {
 		display: grid;
@@ -126,17 +119,6 @@
 	@media screen and (min-width: 40rem) {
 		.carousel {
 			display: none;
-		}
-
-		.gallery {
-			display: block;
-			padding: 7.5%;
-		}
-	}
-
-	@media screen and (min-width: 60rem) {
-		.gallery {
-			padding: 0;
 		}
 	}
 </style>
