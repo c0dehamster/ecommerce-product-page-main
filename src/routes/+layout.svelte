@@ -34,6 +34,7 @@
 	.app,
 	.wrapper {
 		display: grid;
+		height: fit-content;
 	}
 
 	.header,
@@ -53,6 +54,8 @@
 		padding-block: 1rem;
 		padding-inline: 1.5rem;
 		justify-content: space-between;
+
+		border-bottom: 1px solid var(--color-neutral-200);
 	}
 
 	.skip-link {
@@ -69,6 +72,20 @@
 	@media screen and (min-width: 40rem) {
 		.header__align-left {
 			flex-direction: row-reverse;
+		}
+	}
+
+	@media screen and (min-width: 60rem) {
+		.app {
+			padding-inline: max(11%, 4rem);
+		}
+
+		.wrapper {
+			grid-template-columns: 1fr 1fr;
+			column-gap: 13.5rem;
+			align-items: center;
+
+			padding-inline: 3rem;
 		}
 	}
 </style>

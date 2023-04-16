@@ -12,8 +12,6 @@
 	$: cartClass = `cart ${!expanded ? "" : "cart--expanded"}`
 </script>
 
-<!-- A whole bunch of random nonsense -->
-
 <button
 	class="button-icon"
 	aria-expanded={expanded}
@@ -53,7 +51,7 @@
 		display: grid;
 		align-items: center;
 
-		border-bottom: 2px solid var(--color-neutral-200);
+		border-bottom: 1px solid var(--color-neutral-200);
 	}
 
 	.cart__contents {
