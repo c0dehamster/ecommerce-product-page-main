@@ -123,20 +123,20 @@
 		fill: var(--color-neutral-100);
 	}
 
-	@media (min-width: 40rem) {
+	@media screen and (min-width: 40rem) {
 		.carousel {
 			display: none;
 		}
 
 		.gallery {
 			display: block;
-			padding-inline: 7.5%;
+			padding: 7.5%;
 		}
 	}
 
 	@media screen and (min-width: 60rem) {
 		.gallery {
-			padding: none;
+			padding: 0;
 		}
 	}
 </style>
