@@ -61,10 +61,6 @@
 		border-bottom: 1px solid var(--color-neutral-200);
 	}
 
-	.skip-link {
-		position: absolute; /* Will be hidden later */
-	}
-
 	.button--profile {
 		width: 1.5rem;
 		height: fit-content;
