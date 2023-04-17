@@ -67,9 +67,21 @@
 
 	.button--profile {
 		width: 1.5rem;
+		height: fit-content;
 		aspect-ratio: 1;
 		border-radius: 50%;
 		background-color: transparent;
+	}
+
+	/* A way to achieve animated border effect */
+
+	.button--profile::before {
+		inset: 1px; /* To prevent the edge from sticking out */
+		z-index: -1;
+		border-radius: 50%;
+		transition: 100ms linear;
+
+		background-color: var(--color-primary-400);
 	}
 
 	@media screen and (min-width: 50rem) {
@@ -87,6 +99,15 @@
 		}
 	}
 
+	/* Active states */
+
+	.button--profile:hover::before,
+	.button--profile:focus::before {
+		transform: scale(1.1);
+	}
+
+	/* Media query */
+
 	@media screen and (min-width: 60rem) {
 		.app {
 			gap: 5.75rem;
@@ -100,6 +121,10 @@
 			align-items: center;
 
 			padding-inline: 3rem;
+		}
+
+		.button--profile {
+			width: 3.5rem;
 		}
 	}
 </style>
