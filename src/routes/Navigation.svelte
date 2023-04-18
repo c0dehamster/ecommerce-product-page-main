@@ -1,15 +1,28 @@
 <script>
 	import iconMenu from "../lib/images/icon-menu.svg"
 	import iconClose from "../lib/images/icon-close.svg"
+
+	let expanded = false
+
+	const onClick = () => {
+		expanded = !expanded
+	}
+
+	$: navListClass = `nav__list ${!expanded ? "" : "nav__list--expanded"}`
+	$: icon = !expanded ? iconMenu : iconClose
 </script>
 
 <nav class="nav">
-	<button class="button-icon button-icon--nav-toggle" aria-expanded="false">
+	<button
+		class="button-icon button-icon--nav-toggle"
+		aria-controls="navigation"
+		aria-expanded={expanded}
+		on:click={onClick}>
 		<span class="sr-only">Menu</span>
-		<img src={iconMenu} alt="" class="icon" />
+		<img src={icon} alt="" class="icon" />
 	</button>
 
-	<ul class="nav__list nav__list--closed">
+	<ul class={navListClass} id="navigation">
 		<li class="nav__list-item">
 			<a href="#0" class="link">Collections</a>
 		</li>
@@ -33,8 +46,16 @@
 </nav>
 
 <style>
+	.nav,
+	.nav__list,
+	.nav__list-item {
+		display: flex;
+	}
+
 	.nav {
 		height: 100%;
+
+		align-items: center;
 	}
 
 	.button-icon--nav-toggle {
@@ -43,14 +64,12 @@
 
 	.nav__list {
 		height: 100%;
-		display: flex;
 
 		list-style: none;
 		gap: clamp(1rem, 2.5vw, 2rem);
 	}
 
 	.nav__list-item {
-		display: flex;
 		align-items: center;
 		position: relative;
 		height: 100%;
@@ -82,8 +101,44 @@
 			z-index: 100;
 		}
 
-		.nav__list--closed {
+		.nav__list {
 			display: none;
+		}
+
+		.nav__list--expanded {
+			display: flex;
+			position: absolute;
+			z-index: 20;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 66.7%;
+			min-width: fit-content;
+
+			padding-block-start: 5.5rem;
+			padding-inline-start: 1.5rem;
+
+			flex-direction: column;
+			justify-content: start;
+
+			background-color: var(--color-neutral-100);
+		}
+
+		.nav__list-item {
+			height: fit-content;
+			width: fit-content;
+		}
+
+		.link {
+			font-weight: var(--font-weight-bold);
+			color: var(--color-neutral-800);
+		}
+
+		.link:hover::before,
+		.link:focus::before,
+		.link:active::before {
+			bottom: -0.25rem; /* It animates not exactly
+			how I expexted but I actually like it */
 		}
 	}
 </style>
