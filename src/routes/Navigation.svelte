@@ -9,6 +9,7 @@
 	}
 
 	$: navListClass = `nav__list ${!expanded ? "" : "nav__list--expanded"}`
+	$: backdropClass = `backdrop ${!expanded ? "" : "backdrop--expanded"}`
 	$: icon = !expanded ? iconMenu : iconClose
 </script>
 
@@ -21,6 +22,11 @@
 		<span class="sr-only">Menu</span>
 		<img src={icon} alt="" class="icon" />
 	</button>
+
+	<div
+		class={backdropClass}
+		on:click={() => (expanded = false)}
+		aria-hidden="true" />
 
 	<ul class={navListClass} id="navigation">
 		<li class="nav__list-item">
@@ -56,6 +62,11 @@
 		height: 100%;
 
 		align-items: center;
+	}
+
+	.backdrop {
+		position: absolute;
+		transition: background-color 200ms ease-in;
 	}
 
 	.button-icon--nav-toggle {
@@ -120,6 +131,12 @@
 			justify-content: start;
 
 			background-color: var(--color-neutral-100);
+		}
+
+		.backdrop--expanded {
+			inset: 0 0 0 0;
+			z-index: 10;
+			background-color: rgb(0 0 0 / 0.5);
 		}
 
 		.nav__list--expanded {
