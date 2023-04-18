@@ -52,8 +52,8 @@
 
 	.header {
 		width: 100%;
+		height: 4.25rem;
 
-		position: relative;
 		padding-block: 1rem;
 		padding-inline: 1.5rem;
 		justify-content: space-between;
@@ -80,6 +80,15 @@
 		background-color: var(--color-primary-400);
 	}
 
+	/* Active states */
+
+	.button--profile:hover::before,
+	.button--profile:focus::before {
+		transform: scale(1.1);
+	}
+
+	/* Media query */
+
 	@media screen and (min-width: 50rem) {
 		.header {
 			height: 7rem;
@@ -94,15 +103,6 @@
 			gap: 2.5rem;
 		}
 	}
-
-	/* Active states */
-
-	.button--profile:hover::before,
-	.button--profile:focus::before {
-		transform: scale(1.1);
-	}
-
-	/* Media query */
 
 	@media screen and (min-width: 60rem) {
 		.app {

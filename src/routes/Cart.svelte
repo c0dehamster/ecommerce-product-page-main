@@ -90,9 +90,8 @@
 
 	.cart--expanded {
 		position: absolute;
-		bottom: -0.5rem;
+		top: 4.75rem;
 		right: 0.5rem;
-		transform: translateY(100%);
 		z-index: 20;
 
 		/* Stretch to full screen with 0.5rem of space left */
@@ -105,5 +104,14 @@
 		background-color: var(--color-neutral-100);
 
 		box-shadow: 0 0.5rem 1.5rem 0 rgb(0 0 0 / 0.25);
+	}
+
+	/* Media query */
+
+	@media screen and (min-width: 50rem) {
+		.cart--expanded {
+			top: 6rem;
+			right: 5.5rem; /* Needs a better solution */
+		}
 	}
 </style>
