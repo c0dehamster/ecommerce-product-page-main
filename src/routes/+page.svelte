@@ -3,7 +3,20 @@
 	import Counter from "../lib/Counter.svelte"
 	import Carousel from "../lib/Carousel.svelte"
 
-	import iconCart from "../lib/images/icon-cart.svg"
+	import image1thumbnail from "../lib/images/image-product-1-thumbnail.jpg"
+	import image2thumbnail from "../lib/images/image-product-2-thumbnail.jpg"
+	import image3thumbnail from "../lib/images/image-product-3-thumbnail.jpg"
+	import image4thumbnail from "../lib/images/image-product-4-thumbnail.jpg"
+
+	let dialog
+
+	const showModal = () => {
+		dialog.showModal()
+	}
+
+	const close = () => {
+		dialog.close()
+	}
 </script>
 
 <svelte:head>
@@ -14,7 +27,42 @@
 	<Carousel />
 </div>
 
-<Gallery />
+<Gallery on:showModal={showModal} />
+
+<dialog class="dialog" bind:this={dialog}>
+	<button class="button-icon" on:click={close}>
+		<span class="sr-only">Close</span>
+		<svg
+			class="icon"
+			width="14"
+			height="15"
+			xmlns="http://www.w3.org/2000/svg"
+			><path
+				d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+				fill="#69707D"
+				fill-rule="evenodd" /></svg>
+	</button>
+
+	<Carousel />
+
+	<div class="modal__thumbnails">
+		<button class="thumbnail">
+			<img src={image1thumbnail} alt="" class="thumbnail__image" />
+		</button>
+
+		<button class="thumbnail">
+			<img src={image2thumbnail} alt="" class="thumbnail__image" />
+		</button>
+
+		<button class="thumbnail">
+			<img src={image3thumbnail} alt="" class="thumbnail__image" />
+		</button>
+
+		<button class="thumbnail">
+			<img src={image4thumbnail} alt="" class="thumbnail__image" />
+		</button>
+	</div>
+</dialog>
 
 <section class="product-card">
 	<p class="manufacturer">Sneaker Company</p>
@@ -64,6 +112,40 @@
 		row-gap: 1rem;
 
 		padding: 1.5rem;
+	}
+
+	/* Modal */
+
+	.dialog {
+		display: none;
+	}
+
+	.button-icon {
+		justify-self: end;
+		margin-block-end: 1.5rem;
+	}
+
+	.icon path {
+		fill: var(--color-neutral-100);
+	}
+
+	.modal__thumbnails {
+		margin-block-start: 2.5rem;
+		justify-self: center;
+		max-width: 28rem;
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+	}
+
+	.thumbnail,
+	.thumbnail__image {
+		border-radius: 0.5rem;
+	}
+
+	.thumbnail {
+		background: transparent;
+		border: none;
 	}
 
 	/* Product info */
@@ -127,11 +209,34 @@
 
 	.icon path {
 		fill: var(--color-neutral-100);
+		transition: fill 100ms ease-in;
+	}
+
+	/* Active states */
+
+	.icon:hover path,
+	.icon:focus path {
+		fill: var(--color-primary-400);
 	}
 
 	@media screen and (min-width: 40rem) {
 		.carousel {
 			display: none;
+		}
+
+		.dialog:modal {
+			border: none;
+			margin: auto;
+			overflow: visible;
+
+			background: transparent;
+			max-width: 550px;
+
+			display: grid;
+		}
+
+		.dialog:modal::backdrop {
+			background-color: rgb(0 0 0 / 0.75);
 		}
 
 		.price {

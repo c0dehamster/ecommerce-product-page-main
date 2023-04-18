@@ -23,6 +23,8 @@
 		<img src={icon} alt="" class="icon" />
 	</button>
 
+	<!-- I would like to know a better solution -->
+
 	<div
 		class={backdropClass}
 		on:click={() => (expanded = false)}

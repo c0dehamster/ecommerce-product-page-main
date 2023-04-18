@@ -1,4 +1,6 @@
 <script>
+	import { createEventDispatcher } from "svelte"
+
 	import image1 from "./images/image-product-1.jpg"
 	import image2 from "./images/image-product-2.jpg"
 	import image3 from "./images/image-product-3.jpg"
@@ -7,10 +9,16 @@
 	import image2thumbnail from "./images/image-product-2-thumbnail.jpg"
 	import image3thumbnail from "./images/image-product-3-thumbnail.jpg"
 	import image4thumbnail from "./images/image-product-4-thumbnail.jpg"
+
+	const dispatch = createEventDispatcher()
+
+	const showModal = () => {
+		dispatch("showModal")
+	}
 </script>
 
 <div class="gallery">
-	<button class="lightbox">
+	<button class="lightbox" on:click={showModal}>
 		<img src={image1} alt="" class="lightbox__image" />
 	</button>
 
