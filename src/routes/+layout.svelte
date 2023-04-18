@@ -48,13 +48,13 @@
 	.header__align-left,
 	.header__align-right {
 		gap: 1rem;
+		height: 100%;
 	}
 
 	.header {
 		width: 100%;
 		height: 4.25rem;
 
-		padding-block: 1rem;
 		padding-inline: 1.5rem;
 		justify-content: space-between;
 

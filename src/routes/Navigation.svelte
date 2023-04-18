@@ -33,14 +33,46 @@
 </nav>
 
 <style>
+	.nav {
+		height: 100%;
+	}
+
 	.button-icon--nav-toggle {
 		display: none;
 	}
 
 	.nav__list {
+		height: 100%;
 		display: flex;
+
 		list-style: none;
 		gap: clamp(1rem, 2.5vw, 2rem);
+	}
+
+	.nav__list-item {
+		display: flex;
+		align-items: center;
+		position: relative;
+		height: 100%;
+	}
+
+	.link::before {
+		content: "";
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		bottom: 0;
+		border-bottom: 0.25rem solid var(--color-primary-400);
+		transition: 200ms ease-in;
+	}
+
+	/* Active states */
+
+	.link:hover::before,
+	.link:focus::before,
+	.link:active::before {
+		left: 0;
+		right: 0;
 	}
 
 	@media screen and (max-width: 50rem) {
