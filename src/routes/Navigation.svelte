@@ -102,18 +102,16 @@
 		}
 
 		.nav__list {
-			display: none;
-		}
-
-		.nav__list--expanded {
 			display: flex;
-			position: absolute;
+			position: fixed;
 			z-index: 20;
-			left: 0;
+			right: 100%;
 			top: 0;
 			bottom: 0;
 			width: 66.7%;
 			min-width: fit-content;
+
+			transition: 200ms ease-in;
 
 			padding-block-start: 5.5rem;
 			padding-inline-start: 1.5rem;
@@ -122,6 +120,10 @@
 			justify-content: start;
 
 			background-color: var(--color-neutral-100);
+		}
+
+		.nav__list--expanded {
+			transform: translateX(100%);
 		}
 
 		.nav__list-item {
