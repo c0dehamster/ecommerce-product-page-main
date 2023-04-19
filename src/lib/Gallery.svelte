@@ -43,6 +43,8 @@
 		grid-area: lightbox;
 
 		border-radius: 1rem;
+
+		cursor: pointer;
 	}
 
 	.lightbox__image {
@@ -53,6 +55,12 @@
 		display: grid;
 		gap: 2rem;
 		grid-area: thumbnails;
+	}
+
+	/* Active states */
+
+	.lightbox:focus {
+		outline: 2px solid var(--color-primary-400);
 	}
 
 	@media screen and (min-width: 40rem) {
