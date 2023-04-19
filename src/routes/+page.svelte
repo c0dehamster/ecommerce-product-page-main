@@ -28,7 +28,15 @@
 
 <Gallery {images} {thumbnails} on:showModal={showModal} />
 
-<dialog class="dialog" bind:this={dialog}>
+<!-- onKeydown function is to prevent accessibility warning -->
+
+<dialog
+	class="dialog"
+	bind:this={dialog}
+	on:click={close}
+	on:keydown={e => {
+		if (e.key === "Escape") close()
+	}}>
 	<button class="button-icon" on:click={close}>
 		<span class="sr-only">Close</span>
 		<svg

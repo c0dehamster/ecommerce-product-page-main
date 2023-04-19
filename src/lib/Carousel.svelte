@@ -15,7 +15,9 @@
 	}
 </script>
 
-<div class="carousel">
+<!-- onKeydown is used only to prevent the accessibisity varning -->
+
+<div class="carousel" on:click|stopPropagation on:keydown>
 	{#if images.length > 0}
 		<button class="button button--previous">
 			<svg

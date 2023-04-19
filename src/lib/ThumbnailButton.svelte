@@ -2,7 +2,7 @@
 	export let thumbnailImage
 </script>
 
-<button class="thumbnail">
+<button class="thumbnail" on:click|stopPropagation>
 	<img src={thumbnailImage} alt="" class="thumbnail__image" />
 </button>
 
