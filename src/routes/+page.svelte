@@ -4,12 +4,8 @@
 	import Carousel from "../lib/Carousel.svelte"
 	import ThumbnailButton from "../lib/ThumbnailButton.svelte"
 
-	import image1thumbnail from "../lib/images/image-product-1-thumbnail.jpg"
-	import image2thumbnail from "../lib/images/image-product-2-thumbnail.jpg"
-	import image3thumbnail from "../lib/images/image-product-3-thumbnail.jpg"
-	import image4thumbnail from "../lib/images/image-product-4-thumbnail.jpg"
-
 	import { product } from "./Data"
+	let { name, images, thumbnails } = product
 
 	let dialog
 
@@ -27,10 +23,10 @@
 </svelte:head>
 
 <div class="carousel">
-	<Carousel />
+	<Carousel {images} />
 </div>
 
-<Gallery {...product} on:showModal={showModal} />
+<Gallery {images} {thumbnails} on:showModal={showModal} />
 
 <dialog class="dialog" bind:this={dialog}>
 	<button class="button-icon" on:click={close}>
@@ -46,11 +42,11 @@
 				fill-rule="evenodd" /></svg>
 	</button>
 
-	<Carousel />
+	<Carousel {images} />
 
 	<div class="modal__thumbnails">
-		{#if product.thumbnails.length > 0}
-			{#each product.thumbnails as thumbnailImage}
+		{#if thumbnails.length > 0}
+			{#each thumbnails as thumbnailImage}
 				<ThumbnailButton {thumbnailImage} />
 			{/each}
 		{/if}
