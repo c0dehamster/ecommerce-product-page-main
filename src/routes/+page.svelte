@@ -2,6 +2,7 @@
 	import Gallery from "../lib/Gallery.svelte"
 	import Counter from "../lib/Counter.svelte"
 	import Carousel from "../lib/Carousel.svelte"
+	import ThumbnailButton from "../lib/ThumbnailButton.svelte"
 
 	import image1thumbnail from "../lib/images/image-product-1-thumbnail.jpg"
 	import image2thumbnail from "../lib/images/image-product-2-thumbnail.jpg"
@@ -48,21 +49,11 @@
 	<Carousel />
 
 	<div class="modal__thumbnails">
-		<button class="thumbnail">
-			<img src={image1thumbnail} alt="" class="thumbnail__image" />
-		</button>
-
-		<button class="thumbnail">
-			<img src={image2thumbnail} alt="" class="thumbnail__image" />
-		</button>
-
-		<button class="thumbnail">
-			<img src={image3thumbnail} alt="" class="thumbnail__image" />
-		</button>
-
-		<button class="thumbnail">
-			<img src={image4thumbnail} alt="" class="thumbnail__image" />
-		</button>
+		{#if product.thumbnails.length > 0}
+			{#each product.thumbnails as thumbnailImage}
+				<ThumbnailButton {thumbnailImage} />
+			{/each}
+		{/if}
 	</div>
 </dialog>
 
@@ -138,16 +129,6 @@
 		display: flex;
 		justify-content: center;
 		gap: 2rem;
-	}
-
-	.thumbnail,
-	.thumbnail__image {
-		border-radius: 0.5rem;
-	}
-
-	.thumbnail {
-		background: transparent;
-		border: none;
 	}
 
 	/* Product info */
