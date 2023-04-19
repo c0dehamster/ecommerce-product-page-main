@@ -76,6 +76,7 @@ select {
 	--color-neutral-800: hsl(220, 13%, 13%);
 	--color-neutral-900: hsl(0, 0%, 0%);
 
+	--font-size-200: 0.625rem;
 	--font-size-300: 0.875rem;
 	--font-size-400: 1rem;
 	--font-size-500: 1.68rem;

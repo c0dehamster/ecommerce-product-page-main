@@ -4,6 +4,7 @@
 	import Purchase from "../lib/Purchase.svelte"
 
 	let expanded = false
+	let itemsInCart = 3
 
 	const onClick = () => {
 		expanded = !expanded
@@ -14,9 +15,14 @@
 
 <button
 	class="button-icon"
+	style="--items-in-cart: {itemsInCart}"
 	aria-expanded={expanded}
 	aria-controls="cart"
 	on:click={onClick}>
+	<span class="items-in-cart">
+		{itemsInCart}
+	</span>
+
 	<span class="sr-only">Cart</span>
 	<svg class="icon" width="22" height="20" xmlns="http://www.w3.org/2000/svg"
 		><path
@@ -45,8 +51,24 @@
 	}
 
 	.button-icon {
+		position: relative;
 		width: 1.5rem;
 		aspect-ratio: 1;
+	}
+
+	.items-in-cart {
+		position: absolute;
+		height: 14px;
+		width: 20px;
+		border-radius: 7px;
+		top: -4px;
+		right: -5px;
+
+		background-color: var(--color-primary-400);
+		color: var(--color-neutral-100);
+
+		font-size: var(--font-size-200);
+		font-weight: var(--font-weight-bold);
 	}
 
 	.cart__header,
