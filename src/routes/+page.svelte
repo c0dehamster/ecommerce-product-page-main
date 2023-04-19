@@ -8,6 +8,8 @@
 	import image3thumbnail from "../lib/images/image-product-3-thumbnail.jpg"
 	import image4thumbnail from "../lib/images/image-product-4-thumbnail.jpg"
 
+	import { product } from "./Data"
+
 	let dialog
 
 	const showModal = () => {
@@ -27,7 +29,7 @@
 	<Carousel />
 </div>
 
-<Gallery on:showModal={showModal} />
+<Gallery {...product} on:showModal={showModal} />
 
 <dialog class="dialog" bind:this={dialog}>
 	<button class="button-icon" on:click={close}>
