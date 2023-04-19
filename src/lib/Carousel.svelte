@@ -122,6 +122,14 @@
 	}
 
 	@media screen and (min-width: 40rem) {
+		.embla__container {
+			width: 61vh;
+		}
+
+		.embla__slide {
+			flex: 0 0 61vh;
+		}
+
 		.image {
 			aspect-ratio: 1;
 			border-radius: 1rem;

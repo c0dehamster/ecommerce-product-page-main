@@ -3,7 +3,6 @@
 
 	import ThumbnailButton from "./ThumbnailButton.svelte"
 
-	export let name
 	export let images
 	export let thumbnails = []
 

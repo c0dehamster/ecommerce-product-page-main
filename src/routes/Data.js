@@ -1,3 +1,5 @@
+/* Is supposed to simulate some external source of data */
+
 import image1 from "../lib/images/image-product-1.jpg"
 import image2 from "../lib/images/image-product-2.jpg"
 import image3 from "../lib/images/image-product-3.jpg"

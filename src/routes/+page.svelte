@@ -119,9 +119,12 @@
 	}
 
 	.modal__thumbnails {
+		width: 61vh; /* Equal to the width of the carousel */
+		max-width: 28rem;
+
 		margin-block-start: 2.5rem;
 		justify-self: center;
-		max-width: 28rem;
+
 		display: flex;
 		justify-content: center;
 		gap: 2rem;
