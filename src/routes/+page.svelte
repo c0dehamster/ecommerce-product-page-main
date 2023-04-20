@@ -5,7 +5,7 @@
 	import ThumbnailButton from "../lib/ThumbnailButton.svelte"
 
 	import { product } from "./Data"
-	let { name, images, thumbnails } = product
+	let { name, description, images, thumbnails } = product
 
 	let dialog
 
@@ -63,11 +63,9 @@
 
 <section class="product-card">
 	<p class="manufacturer">Sneaker Company</p>
-	<h1 class="heading">Fall Limited Edition Sneakers</h1>
+	<h1 class="heading">{name}</h1>
 	<p class="description">
-		These low-profile sneakers are your perfect casual wear companion.
-		Featuring a durable rubber outer sole, they’ll withstand everything the
-		weather can offer.
+		{description}
 	</p>
 
 	<div class="price">
