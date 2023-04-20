@@ -1,7 +1,6 @@
 <script>
-	import iconCart from "../lib/images/icon-cart.svg"
-
 	import Purchase from "../lib/Purchase.svelte"
+	import { CartStore } from "./Cart.js"
 
 	let expanded = false
 	let itemsInCart = 3
@@ -36,13 +35,17 @@
 		<h2 class="heading">Cart</h2>
 	</div>
 
-	<ul class="cart__contents">
-		<li class="cart__item">
-			<Purchase />
-		</li>
+	{#if $CartStore.cartItems.length > 0}
+		<ul class="cart__contents">
+			{#each $CartStore.cartItems as purchase}
+				<li class="cart__item">
+					<Purchase {purchase} />
+				</li>
+			{/each}
 
-		<button class="button">Checkout</button>
-	</ul>
+			<button class="button">Checkout</button>
+		</ul>
+	{/if}
 </section>
 
 <style>
@@ -91,6 +94,7 @@
 
 		display: grid;
 		align-items: start;
+		gap: 1.5rem;
 
 		list-style: none;
 	}
@@ -114,7 +118,7 @@
 		position: absolute;
 		top: 4.75rem;
 		right: 0.5rem;
-		z-index: 20;
+		z-index: 200;
 
 		/* Stretch to full screen with 0.5rem of space left */
 		width: min(100% - 1rem, 22.5rem);
