@@ -30,7 +30,7 @@ const createCartStore = () => {
 					}
 				})
 
-				return { ...store, cartItemsUpdated }
+				return { ...store, cartItems: cartItemsUpdated }
 			})
 		} else {
 			// Case 2: add a new purchase
@@ -39,6 +39,16 @@ const createCartStore = () => {
 				cartItems: [...store.cartItems, purchase],
 			}))
 		}
+	}
+
+	const removeFromCart = purchase => {
+		update(store => {
+			let cartItemsUpdated = cartItems.filter(
+				item => item.id !== purchase.id
+			)
+
+			return { ...store, cartItems: cartItemsUpdated }
+		})
 	}
 
 	return {
