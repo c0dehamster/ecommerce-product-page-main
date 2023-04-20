@@ -1,8 +1,24 @@
 <script>
+	import { spring } from "svelte/motion"
+	import { createEventDispatcher } from "svelte"
+
+	const dispatch = createEventDispatcher()
+
+	let count = 0
+
+	const increment = () => (count += 1)
+
+	const decrement = () => {
+		if (count > 0) count -= 1
+	}
+
+	$: {
+		dispatch("counterChange", count)
+	}
 </script>
 
 <div class="counter">
-	<button class="button-icon">
+	<button class="button-icon" on:click={decrement}>
 		<span class="sr-only">Add</span>
 		<svg
 			class="counter__icon"
@@ -17,9 +33,9 @@
 			><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" /></svg>
 	</button>
 
-	<p class="value">0</p>
+	<p class="value">{count}</p>
 
-	<button class="button-icon">
+	<button class="button-icon" on:click={increment}>
 		<span class="sr-only">remove</span>
 		<svg
 			class="counter__icon"

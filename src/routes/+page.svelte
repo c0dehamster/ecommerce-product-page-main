@@ -79,7 +79,7 @@
 
 	<div class="controls">
 		<div class="counter">
-			<Counter />
+			<Counter on:counterChange={e => console.log(e.detail)} />
 		</div>
 
 		<button class="button">
