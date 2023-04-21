@@ -40,6 +40,10 @@
 		border-radius: 0.5rem;
 	}
 
+	.thumbnail__radio {
+		display: none;
+	}
+
 	/* Active states */
 
 	.thumbnail:focus::before {
