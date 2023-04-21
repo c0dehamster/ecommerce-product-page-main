@@ -34,17 +34,15 @@
 	}
 
 	.lightbox {
-		background: transparent;
-		border: none;
-	}
-
-	.lightbox {
 		grid-column: span 4;
 		grid-area: lightbox;
 
 		border-radius: 1rem;
 
 		cursor: pointer;
+
+		background: transparent;
+		border: none;
 	}
 
 	.lightbox__image {
