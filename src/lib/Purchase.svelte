@@ -14,7 +14,8 @@
 	<div class="purchase__info">
 		<p class="purchase__name">{purchase.name}</p>
 		<p class="purchase__price">
-			${priceFormatted} x 3 <span class="purchase__total">${total}</span>
+			${priceFormatted} x {purchase.quantity}
+			<span class="purchase__total">${total}</span>
 		</p>
 	</div>
 

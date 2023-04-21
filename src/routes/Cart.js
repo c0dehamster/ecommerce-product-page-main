@@ -1,27 +1,27 @@
 import { writable, get } from "svelte/store"
 
-import image1thumbnail from "../lib/images/image-product-1-thumbnail.jpg"
-
 const createCartStore = () => {
 	const { set, update, subscribe } = writable({
-		cartItems: [
-			{
-				id: 0,
-				name: "Fall Limited Edition Sneakers",
-				price: 125,
-				thumbnail: image1thumbnail,
-				quantity: 3,
-			}, // Test item
-		],
+		cartItems: [],
 	})
 
 	const addToCart = purchase => {
-		let itemPosition = cartItems.findIndex(item => item.id === purchase.id)
+		update(store => {
+			let itemIndex = store.cartItems.findIndex(
+				item => item.id === purchase.id
+			)
 
-		if (itemPosition !== -1) {
-			// Case 1: update an existing purchase
-			update(store => {
-				let cartItemsUpdated = cartItems.map(item => {
+			if (itemIndex === -1) {
+				// Case 1: add a new purchase
+
+				return {
+					...store,
+					cartItems: [purchase, ...store.cartItems],
+				}
+			} else {
+				// Case 2: update an existing purchase
+
+				let cartItemsUpdated = store.cartItems.map(item => {
 					if (item.id !== purchase.id) return item
 
 					return {
@@ -30,20 +30,17 @@ const createCartStore = () => {
 					}
 				})
 
-				return { ...store, cartItems: cartItemsUpdated }
-			})
-		} else {
-			// Case 2: add a new purchase
-			update(store => ({
-				...store,
-				cartItems: [...store.cartItems, purchase],
-			}))
-		}
+				return {
+					...store,
+					cartItems: cartItemsUpdated,
+				}
+			}
+		})
 	}
 
 	const removeFromCart = purchase => {
 		update(store => {
-			let cartItemsUpdated = cartItems.filter(
+			let cartItemsUpdated = store.cartItems.filter(
 				item => item.id !== purchase.id
 			)
 
@@ -54,6 +51,7 @@ const createCartStore = () => {
 	return {
 		subscribe,
 		addToCart,
+		removeFromCart,
 	}
 }
 

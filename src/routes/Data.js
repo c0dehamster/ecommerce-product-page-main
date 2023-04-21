@@ -10,7 +10,13 @@ import image3thumbnail from "../lib/images/image-product-3-thumbnail.jpg"
 import image4thumbnail from "../lib/images/image-product-4-thumbnail.jpg"
 
 export const product = {
+	id: 0,
 	name: "Fall Limited Edition Sneakers",
+	price: {
+		priceOld: 250,
+		discount: 50,
+		priceNew: 125,
+	},
 	description:
 		"These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
 	images: [image1, image2, image3, image4],
