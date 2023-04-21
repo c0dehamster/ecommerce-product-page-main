@@ -143,6 +143,7 @@
 
 		.nav__list--expanded {
 			transform: translateX(100%);
+			box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.25);
 		}
 
 		.nav__list-item {
