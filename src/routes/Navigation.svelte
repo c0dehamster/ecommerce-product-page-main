@@ -111,13 +111,13 @@
 		.button-icon--nav-toggle {
 			display: block;
 			position: relative;
-			z-index: 100;
+			z-index: 40;
 		}
 
 		.nav__list {
 			display: flex;
 			position: fixed;
-			z-index: 20;
+			z-index: 30;
 			right: 100%;
 			top: 0;
 			bottom: 0;

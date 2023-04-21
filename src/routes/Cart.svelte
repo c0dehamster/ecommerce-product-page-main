@@ -144,7 +144,7 @@
 		position: absolute;
 		top: 4.75rem;
 		right: 0.5rem;
-		z-index: 200;
+		z-index: 20;
 
 		/* Stretch to full screen with 0.5rem of space left */
 		width: min(100% - 1rem, 22.5rem);
