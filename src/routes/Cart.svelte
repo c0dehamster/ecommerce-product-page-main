@@ -3,7 +3,7 @@
 	import { CartStore } from "./Cart.js"
 
 	let expanded = false
-	let itemsInCart = 3
+	let itemsInCart = 0
 
 	const onClick = () => {
 		expanded = !expanded
@@ -14,18 +14,32 @@
 		console.log($CartStore)
 	}
 
+	$: {
+		if ($CartStore.cartItems.length > 0) {
+			itemsInCart = $CartStore.cartItems.reduce(
+				(accumulator, currentValue) => {
+					return accumulator + currentValue.quantity
+				},
+				0
+			)
+		} else {
+			itemsInCart = 0
+		}
+	}
+
 	$: cartClass = `cart ${!expanded ? "" : "cart--expanded"}`
 </script>
 
 <button
 	class="button-icon"
-	style="--items-in-cart: {itemsInCart}"
 	aria-expanded={expanded}
 	aria-controls="cart"
 	on:click={onClick}>
-	<span class="items-in-cart">
-		{itemsInCart}
-	</span>
+	{#if itemsInCart > 0}
+		<span class="items-in-cart">
+			{itemsInCart}
+		</span>
+	{/if}
 
 	<span class="sr-only">Cart</span>
 	<svg class="icon" width="22" height="20" xmlns="http://www.w3.org/2000/svg"
