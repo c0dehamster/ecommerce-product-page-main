@@ -38,10 +38,10 @@ const createCartStore = () => {
 		})
 	}
 
-	const removeFromCart = purchase => {
+	const removeFromCart = id => {
 		update(store => {
 			let cartItemsUpdated = store.cartItems.filter(
-				item => item.id !== purchase.id
+				item => item.id !== id
 			)
 
 			return { ...store, cartItems: cartItemsUpdated }

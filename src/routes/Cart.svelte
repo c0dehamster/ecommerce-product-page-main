@@ -9,6 +9,11 @@
 		expanded = !expanded
 	}
 
+	const onDelete = e => {
+		CartStore.removeFromCart(e.detail)
+		console.log($CartStore)
+	}
+
 	$: cartClass = `cart ${!expanded ? "" : "cart--expanded"}`
 </script>
 
@@ -39,9 +44,7 @@
 		<ul class="cart__contents">
 			{#each $CartStore.cartItems as purchase}
 				<li class="cart__item">
-					<Purchase
-						{purchase}
-						on:delete={e => console.log(e.detail)} />
+					<Purchase {purchase} on:delete={onDelete} />
 				</li>
 			{/each}
 
