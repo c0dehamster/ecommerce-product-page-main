@@ -1,11 +1,17 @@
 <script>
 	import iconDelete from "../lib/images/icon-delete.svg"
 
+	import { createEventDispatcher } from "svelte"
+
+	const dispatch = createEventDispatcher()
+
 	export let purchase
 
 	let priceFormatted = purchase.price.toFixed(2)
 
 	$: total = (purchase.price * purchase.quantity).toFixed(2)
+
+	const onDelete = e => dispatch("delete", purchase.id)
 </script>
 
 <div class="purchase" id={purchase.id}>
@@ -19,7 +25,7 @@
 		</p>
 	</div>
 
-	<button class="button-icon">
+	<button class="button-icon" on:click={onDelete}>
 		<img src={iconDelete} alt="" class="icon" />
 		<span class="sr-only">Remove</span>
 	</button>

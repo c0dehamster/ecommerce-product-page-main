@@ -39,7 +39,9 @@
 		<ul class="cart__contents">
 			{#each $CartStore.cartItems as purchase}
 				<li class="cart__item">
-					<Purchase {purchase} />
+					<Purchase
+						{purchase}
+						on:delete={e => console.log(e.detail)} />
 				</li>
 			{/each}
 
