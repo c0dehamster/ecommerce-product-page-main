@@ -90,6 +90,10 @@
 	/* Media query */
 
 	@media screen and (min-width: 50rem) {
+		.wrapper {
+			padding-block: 5.75rem;
+		}
+
 		.header {
 			height: 7rem;
 		}
@@ -105,10 +109,6 @@
 	}
 
 	@media screen and (min-width: 60rem) {
-		.app {
-			gap: 5.75rem;
-		}
-
 		.wrapper {
 			max-width: 70rem;
 
