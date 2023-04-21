@@ -13,13 +13,18 @@
 	const onInit = e => {
 		emblaApi = e.detail
 	}
+
+	// For some reason, these callbacks did not work inline
+
+	const scrollNext = () => emblaApi.scrollNext()
+	const scrollPrev = () => emblaApi.scrollPrev()
 </script>
 
 <!-- onKeydown is used only to prevent the accessibisity varning -->
 
 <div class="carousel" on:click|stopPropagation on:keydown>
 	{#if images.length > 0}
-		<button class="button button--previous">
+		<button class="button button--previous" on:click={scrollPrev}>
 			<svg
 				class="icon"
 				width="12"
@@ -33,7 +38,7 @@
 					fill-rule="evenodd" /></svg>
 		</button>
 
-		<button class="button button--next">
+		<button class="button button--next" on:click={scrollNext}>
 			<svg
 				class="icon"
 				width="13"
