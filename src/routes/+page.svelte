@@ -5,9 +5,12 @@
 	import ThumbnailButton from "../lib/ThumbnailButton.svelte"
 
 	import { product } from "./Data"
-	let { name, description, images, thumbnails } = product
+	import { CartStore } from "./Cart"
+
+	let { id, name, price, description, images, thumbnails } = product
 
 	let dialog
+	let quantity = 0
 
 	const showModal = () => {
 		dialog.showModal()
@@ -15,6 +18,20 @@
 
 	const close = () => {
 		dialog.close()
+	}
+
+	const onClick = () => {
+		if (quantity === 0) return
+
+		CartStore.addToCart({
+			id,
+			name,
+			price: price.priceNew,
+			thumbnail: thumbnails[0],
+			quantity,
+		})
+
+		console.log($CartStore)
 	}
 </script>
 
@@ -70,19 +87,19 @@
 
 	<div class="price">
 		<div class="price__relevant">
-			<p class="price__new">$125.00</p>
-			<p class="price__discount">50%</p>
+			<p class="price__new">${price.priceNew.toFixed(2)}</p>
+			<p class="price__discount">{price.discount}%</p>
 		</div>
 
-		<p class="price__old"><s>$250.00</s></p>
+		<p class="price__old"><s>${price.priceOld.toFixed(2)}</s></p>
 	</div>
 
 	<div class="controls">
 		<div class="counter">
-			<Counter on:counterChange={e => console.log(e.detail)} />
+			<Counter on:counterChange={e => (quantity = e.detail)} />
 		</div>
 
-		<button class="button">
+		<button class="button" on:click={onClick}>
 			<svg
 				class="icon"
 				width="22"
