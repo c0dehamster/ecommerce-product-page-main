@@ -40,8 +40,8 @@
 		<h2 class="heading">Cart</h2>
 	</div>
 
-	{#if $CartStore.cartItems.length > 0}
-		<ul class="cart__contents">
+	<ul class="cart__contents">
+		{#if $CartStore.cartItems.length > 0}
 			{#each $CartStore.cartItems as purchase}
 				<li class="cart__item">
 					<Purchase {purchase} on:delete={onDelete} />
@@ -49,8 +49,10 @@
 			{/each}
 
 			<button class="button">Checkout</button>
-		</ul>
-	{/if}
+		{:else}
+			<p class="placeholder">Your cart is empty.</p>
+		{/if}
+	</ul>
 </section>
 
 <style>
@@ -62,6 +64,11 @@
 		position: relative;
 		width: 1.5rem;
 		aspect-ratio: 1;
+	}
+
+	.placeholder {
+		font-weight: var(--font-weight-bold);
+		text-align: center;
 	}
 
 	.items-in-cart {
@@ -85,7 +92,7 @@
 	}
 
 	.cart__header {
-		padding-block: 1rem;
+		height: 4.25rem;
 
 		display: grid;
 		align-items: center;
@@ -131,6 +138,7 @@
 		border-radius: 0.625rem;
 
 		display: grid;
+		align-items: baseline;
 
 		background-color: var(--color-neutral-100);
 
