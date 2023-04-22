@@ -10,7 +10,6 @@
 
 	let quantity = 0
 	let openLightbox = false
-	let currentSlide = 0
 
 	const onClick = () => {
 		if (quantity === 0) return
@@ -32,7 +31,7 @@
 </svelte:head>
 
 <div class="carousel">
-	<Carousel {images} {currentSlide} />
+	<Carousel {images} />
 </div>
 
 <Gallery {images} {thumbnails} on:openLightbox={() => (openLightbox = true)} />

@@ -1,18 +1,15 @@
 <script>
 	import emblaCarouselSvelte from "embla-carousel-svelte"
 
-	import ThumbnailRadio from "./ThumbnailRadio.svelte"
 	import ThumbnailButton from "./ThumbnailButton.svelte"
+	import { currentSlide } from "./Carousel"
 
 	export let images = []
 	export let thumbnails = []
-	export let currentSlide = 0
 
 	let emblaApi
 
-	let scrollNext
-	let scrollPrev
-	let scrollTo
+	let scrollNext, scrollPrev, scrollTo, jumpTo
 
 	const emblaConfig = {
 		options: { loop: true },
@@ -24,10 +21,11 @@
 		scrollNext = () => emblaApi.scrollNext()
 		scrollPrev = () => emblaApi.scrollPrev()
 		scrollTo = index => emblaApi.scrollTo(index)
+		jumpTo = index => emblaApi.scrollTo(index, true)
 	}
 
 	$: {
-		if (emblaApi) scrollTo(currentSlide)
+		if (emblaApi) jumpTo($currentSlide)
 	}
 </script>
 

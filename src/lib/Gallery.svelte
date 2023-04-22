@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from "svelte"
 
 	import ThumbnailRadio from "./ThumbnailRadio.svelte"
+	import { currentSlide } from "./Carousel"
 
 	export let images
 	export let thumbnails = []
@@ -13,6 +14,10 @@
 	}
 
 	let currentImage = 0
+
+	$: {
+		currentSlide.set(currentImage)
+	}
 </script>
 
 <div class="gallery">
