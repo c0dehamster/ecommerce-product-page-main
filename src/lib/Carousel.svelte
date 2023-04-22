@@ -165,6 +165,10 @@
 			border: none;
 		}
 
+		.embla__slide {
+			margin-inline-end: 5%;
+		}
+
 		.image {
 			aspect-ratio: 1;
 			border-radius: 1rem;
