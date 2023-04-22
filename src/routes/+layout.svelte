@@ -28,6 +28,8 @@
 	<main class="wrapper" id="main">
 		<slot />
 	</main>
+
+	<Lightbox />
 </div>
 
 <style>

@@ -2,9 +2,13 @@
 	import emblaCarouselSvelte from "embla-carousel-svelte"
 
 	export let images = []
-	export let currentSlide = 1
+	export let currentSlide = 0
 
 	let emblaApi
+
+	let scrollNext
+	let scrollPrev
+	let scrollTo
 
 	const emblaConfig = {
 		options: { loop: true },
@@ -12,12 +16,15 @@
 
 	const onInit = e => {
 		emblaApi = e.detail
+
+		scrollNext = () => emblaApi.scrollNext()
+		scrollPrev = () => emblaApi.scrollPrev()
+		scrollTo = index => emblaApi.scrollTo(index)
 	}
 
-	// For some reason, these callbacks did not work inline
-
-	const scrollNext = () => emblaApi.scrollNext()
-	const scrollPrev = () => emblaApi.scrollPrev()
+	$: {
+		if (emblaApi) scrollTo(currentSlide)
+	}
 </script>
 
 <!-- onKeydown is used only to prevent the accessibisity varning -->

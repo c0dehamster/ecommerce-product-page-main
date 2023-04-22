@@ -1,7 +1,7 @@
 <script>
 	import { createEventDispatcher } from "svelte"
 
-	import ThumbnailButton from "./ThumbnailButton.svelte"
+	import ThumbnailRadio from "./ThumbnailRadio.svelte"
 
 	export let images
 	export let thumbnails = []
@@ -11,20 +11,25 @@
 	const showModal = () => {
 		dispatch("showModal")
 	}
+
+	let currentImage = 0
 </script>
 
 <div class="gallery">
 	<button class="lightbox" on:click={showModal}>
-		<img src={images[0]} alt="" class="lightbox__image" />
+		<img src={images[currentImage]} alt="" class="lightbox__image" />
 	</button>
 
-	<div class="thumbnails">
+	<fieldset class="thumbnails">
 		{#if thumbnails.length > 0}
-			{#each thumbnails as thumbnailImage}
-				<ThumbnailButton {thumbnailImage} />
+			{#each thumbnails as thumbnail}
+				<ThumbnailRadio
+					id={thumbnail.id}
+					image={thumbnail.url}
+					bind:group={currentImage} />
 			{/each}
 		{/if}
-	</div>
+	</fieldset>
 </div>
 
 <style>
@@ -53,6 +58,8 @@
 		display: grid;
 		gap: 2rem;
 		grid-area: thumbnails;
+
+		border: none;
 	}
 
 	/* Active states */

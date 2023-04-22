@@ -1,11 +1,15 @@
 <script>
 	export let id
-	export let thumbnailImage
+	export let image
 	export let group
 </script>
 
-<label for={id} class="thumbnail">
-	<img src={thumbnailImage} alt="" class="thumbnail__image" />
+<label
+	for={id}
+	class="thumbnail"
+	on:click|stopPropagation
+	on:keydown={() => null}>
+	<img src={image} alt="" class="thumbnail__image" />
 	<input {id} value={id} type="radio" class="thumbnail__radio" bind:group />
 </label>
 
@@ -22,6 +26,7 @@
 		content: "";
 		position: absolute;
 		inset: 0;
+
 		border-radius: 0.5rem;
 	}
 
@@ -46,7 +51,7 @@
 
 	/* Active states */
 
-	.thumbnail:focus::before {
+	.thumbnail:checked::before {
 		scale: 1.05;
 	}
 

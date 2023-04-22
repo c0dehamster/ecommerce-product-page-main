@@ -21,9 +21,21 @@ export const product = {
 		"These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
 	images: [image1, image2, image3, image4],
 	thumbnails: [
-		image1thumbnail,
-		image2thumbnail,
-		image3thumbnail,
-		image4thumbnail,
+		{
+			url: image1thumbnail,
+			id: 0,
+		},
+		{
+			url: image2thumbnail,
+			id: 1,
+		},
+		{
+			url: image3thumbnail,
+			id: 2,
+		},
+		{
+			url: image4thumbnail,
+			id: 3,
+		},
 	],
 }
