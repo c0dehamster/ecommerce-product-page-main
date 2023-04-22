@@ -8,15 +8,15 @@
 
 	const dispatch = createEventDispatcher()
 
-	const showModal = () => {
-		dispatch("showModal")
+	const openLightbox = () => {
+		dispatch("openLightbox")
 	}
 
 	let currentImage = 0
 </script>
 
 <div class="gallery">
-	<button class="lightbox" on:click={showModal}>
+	<button class="lightbox" on:click={openLightbox}>
 		<img src={images[currentImage]} alt="" class="lightbox__image" />
 	</button>
 

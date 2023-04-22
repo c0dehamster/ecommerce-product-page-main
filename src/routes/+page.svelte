@@ -9,6 +9,8 @@
 	let { id, name, price, description, images, thumbnails } = product
 
 	let quantity = 0
+	let openLightbox = false
+	let currentSlide = 0
 
 	const onClick = () => {
 		if (quantity === 0) return
@@ -30,10 +32,34 @@
 </svelte:head>
 
 <div class="carousel">
-	<Carousel {images} />
+	<Carousel {images} {currentSlide} />
 </div>
 
-<Gallery {images} {thumbnails} />
+<Gallery {images} {thumbnails} on:openLightbox={() => (openLightbox = true)} />
+
+<!-- I was unable to use dialog due to a bug preventing the carousel from sliding.
+It is still kind of buggy -->
+
+{#if openLightbox}
+	<div class="modal">
+		<div class="lightbox">
+			<button class="button-icon" on:click={() => (openLightbox = false)}>
+				<span class="sr-only">Close</span>
+				<svg
+					class="icon"
+					width="14"
+					height="15"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+						fill="#69707D"
+						fill-rule="evenodd" /></svg>
+			</button>
+
+			<Carousel {images} {thumbnails} />
+		</div>
+	</div>
+{/if}
 
 <section class="product-card">
 	<p class="manufacturer">Sneaker Company</p>
@@ -81,6 +107,33 @@
 		row-gap: 1rem;
 
 		padding: 1.5rem;
+	}
+
+	/* Lightbox */
+
+	.modal {
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+
+		height: 100vh;
+		width: 100vw;
+
+		display: grid;
+		place-items: center;
+
+		background-color: rgb(0 0 0 / 0.5);
+	}
+
+	.lightbox {
+		max-width: 550px;
+
+		display: grid;
+	}
+
+	.button-icon {
+		justify-self: end;
+		margin-block-end: 1.5rem;
 	}
 
 	/* Product info */
