@@ -1,7 +1,11 @@
 <script>
 	import emblaCarouselSvelte from "embla-carousel-svelte"
 
+	import ThumbnailRadio from "./ThumbnailRadio.svelte"
+	import ThumbnailButton from "./ThumbnailButton.svelte"
+
 	export let images = []
+	export let thumbnails = []
 	export let currentSlide = 0
 
 	let emblaApi
@@ -74,6 +78,18 @@
 	{/if}
 </div>
 
+<fieldset class="thumbnails">
+	{#if thumbnails.length > 0}
+		{#each thumbnails as thumbnail}
+			<ThumbnailButton
+				thumbnailImage={thumbnail.url}
+				on:click={() => {
+					scrollTo(thumbnail.id)
+				}} />
+		{/each}
+	{/if}
+</fieldset>
+
 <style>
 	.carousel {
 		position: relative;
@@ -124,6 +140,10 @@
 		object-position: center;
 	}
 
+	.thumbnails {
+		display: none;
+	}
+
 	/* Active states */
 
 	.button:hover .icon path,
@@ -136,8 +156,15 @@
 	}
 
 	@media screen and (min-width: 40rem) {
-		.embla__container {
-			width: 61vh;
+		.thumbnails {
+			max-width: 28rem;
+			justify-self: center;
+			padding-block-start: 2.5rem;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2rem;
+
+			border: none;
 		}
 
 		.image {
