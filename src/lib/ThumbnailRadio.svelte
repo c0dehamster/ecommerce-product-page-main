@@ -1,4 +1,6 @@
 <script>
+	import { currentSlide } from "./Carousel"
+
 	export let id
 	export let image
 	export let group
@@ -6,7 +8,7 @@
 
 <label
 	for={id}
-	class="thumbnail"
+	class="thumbnail {$currentSlide === id ? 'thumbnail--active' : ''}"
 	on:click|stopPropagation
 	on:keydown={() => null}>
 	<img src={image} alt="" class="thumbnail__image" />
@@ -51,7 +53,7 @@
 
 	/* Active states */
 
-	.thumbnail:checked::before {
+	.thumbnail--active::before {
 		scale: 1.05;
 	}
 
@@ -60,7 +62,7 @@
 		background-color: rgb(255 255 255 / 0.25);
 	}
 
-	.thumbnail:checked::after {
+	.thumbnail.thumbnail--active::after {
 		background-color: rgb(255 255 255 / 0.5);
 	}
 </style>

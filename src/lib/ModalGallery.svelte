@@ -5,18 +5,22 @@
 	export let images
 	export let thumbnails = []
 
-	let currentImage = 0
+	let currentImageLightbox = 0
 
 	const scrollNext = () => {
-		currentImage < 3 ? currentImage++ : (currentImage = 0)
+		currentImageLightbox < 3
+			? currentImageLightbox++
+			: (currentImageLightbox = 0)
 	}
 
 	const scrollPrev = () => {
-		currentImage > 0 ? currentImage-- : (currentImage = 3)
+		currentImageLightbox > 0
+			? currentImageLightbox--
+			: (currentImageLightbox = 3)
 	}
 
 	$: {
-		currentSlide.set(currentImage)
+		currentSlide.set(currentImageLightbox)
 	}
 </script>
 
@@ -58,7 +62,7 @@
 				<ThumbnailRadio
 					id={thumbnail.id}
 					image={thumbnail.url}
-					bind:group={currentImage} />
+					bind:group={currentImageLightbox} />
 			{/each}
 		{/if}
 	</fieldset>
