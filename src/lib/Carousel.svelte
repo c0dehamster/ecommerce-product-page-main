@@ -1,16 +1,11 @@
 <script>
 	import emblaCarouselSvelte from "embla-carousel-svelte"
 
-	import ThumbnailButton from "./ThumbnailButton.svelte"
 	import { currentSlide } from "./Carousel"
 
 	export let images = []
-	export let thumbnails = []
-	export let isModal = false
 
-	let emblaApi
-
-	let scrollNext, scrollPrev, scrollTo, jumpTo, reInit
+	let emblaApi, scrollNext, scrollPrev, scrollTo, jumpTo
 
 	const emblaConfig = {
 		options: { loop: true },
@@ -23,7 +18,6 @@
 		scrollPrev = () => emblaApi.scrollPrev()
 		scrollTo = index => emblaApi.scrollTo(index)
 		jumpTo = index => emblaApi.scrollTo(index, true)
-		reInit = () => emblaApi.reInit()
 	}
 
 	$: {
@@ -78,18 +72,6 @@
 	{/if}
 </div>
 
-<fieldset class="thumbnails">
-	{#if thumbnails.length > 0}
-		{#each thumbnails as thumbnail}
-			<ThumbnailButton
-				thumbnailImage={thumbnail.url}
-				on:click={() => {
-					scrollTo(thumbnail.id)
-				}} />
-		{/each}
-	{/if}
-</fieldset>
-
 <style>
 	.carousel {
 		position: relative;
@@ -140,10 +122,6 @@
 		object-position: center;
 	}
 
-	.thumbnails {
-		display: none;
-	}
-
 	/* Active states */
 
 	.button:hover .icon path,
@@ -156,17 +134,6 @@
 	}
 
 	@media screen and (min-width: 40rem) {
-		.thumbnails {
-			max-width: 28rem;
-			justify-self: center;
-			padding-block-start: 2.5rem;
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: 2rem;
-
-			border: none;
-		}
-
 		.embla__slide {
 			margin-inline-end: 5%;
 		}
