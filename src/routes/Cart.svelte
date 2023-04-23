@@ -158,7 +158,7 @@
 	/* Media query */
 
 	@media screen and (min-width: 50rem) {
-		.cart--expanded {
+		.cart {
 			top: 6rem;
 			right: 5.5rem; /* Needs a better solution */
 		}
