@@ -22,7 +22,7 @@
 
 <div class="gallery">
 	<button class="lightbox" on:click={openLightbox}>
-		<img src={images[currentImage]} alt="" class="lightbox__image" />
+		<img src={images[$currentSlide]} alt="" class="lightbox__image" />
 	</button>
 
 	<fieldset class="thumbnails">
