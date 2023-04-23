@@ -4,11 +4,11 @@
 	import Carousel from "./Carousel.svelte"
 	import ModalGallery from "./ModalGallery.svelte"
 
-	import { product } from "./Data"
 	import { CartStore } from "./Cart"
 
-	let { id, name, price, description, images, thumbnails } = product
+	export let data
 
+	let { id, name, price, description, images, thumbnails } = data
 	let quantity = 0
 	let dialog
 
