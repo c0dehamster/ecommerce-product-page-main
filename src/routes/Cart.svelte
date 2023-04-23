@@ -8,6 +8,8 @@
 	const onClick = () => (expanded = !expanded)
 	const onDelete = e => CartStore.removeFromCart(e.detail)
 
+	// The reduce function is only required if there is more than 1 kind of product
+
 	$: {
 		if ($CartStore.cartItems.length > 0) {
 			itemsInCart = $CartStore.cartItems.reduce(

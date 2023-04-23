@@ -40,8 +40,8 @@
 
 <Gallery {images} {thumbnails} on:openLightbox={showModal} />
 
-<!-- I was unable to use dialog due to a bug preventing the carousel from sliding.
-It is still kind of buggy -->
+<!-- I couldn't use the carousel here due to a bug with it not resizing properly
+whel initialized in an element with display: none -->
 
 <dialog class="dialog" bind:this={dialog}>
 	<div class="lightbox">

@@ -4,9 +4,7 @@
 
 	let expanded = false
 
-	const onClick = () => {
-		expanded = !expanded
-	}
+	const onClick = () => (expanded = !expanded)
 
 	$: navListClass = `nav__list ${!expanded ? "" : "nav__list--expanded"}`
 	$: backdropClass = `backdrop ${!expanded ? "" : "backdrop--expanded"}`

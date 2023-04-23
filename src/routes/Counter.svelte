@@ -1,5 +1,4 @@
 <script>
-	import { spring } from "svelte/motion"
 	import { createEventDispatcher } from "svelte"
 
 	const dispatch = createEventDispatcher()

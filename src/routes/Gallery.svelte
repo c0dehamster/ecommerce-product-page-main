@@ -4,14 +4,12 @@
 	import ThumbnailRadio from "./ThumbnailRadio.svelte"
 	import { currentSlide } from "./Carousel"
 
+	const dispatch = createEventDispatcher()
+
 	export let images
 	export let thumbnails = []
 
-	const dispatch = createEventDispatcher()
-
-	const openLightbox = () => {
-		dispatch("openLightbox")
-	}
+	const openLightbox = () => dispatch("openLightbox")
 
 	let currentImage = 0
 
@@ -73,13 +71,14 @@
 		outline: 2px solid var(--color-primary-400);
 	}
 
+	/* Additional layout for intermediate screen sizes */
+
 	@media screen and (min-width: 40rem) {
 		.gallery {
 			display: grid;
 			gap: 2rem;
 
 			padding: 7.5%;
-			/* Additional layout for intermediate screen sizes */
 
 			grid-template-areas:
 				"lightbox lightbox lightbox lightbox thumbnails"
