@@ -1,5 +1,5 @@
 <script>
-	import Purchase from "../lib/Purchase.svelte"
+	import Purchase from "./Purchase.svelte"
 	import { CartStore } from "./Cart.js"
 
 	let expanded = false

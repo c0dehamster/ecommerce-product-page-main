@@ -1,8 +1,8 @@
 <script>
-	import Gallery from "../lib/Gallery.svelte"
-	import Counter from "../lib/Counter.svelte"
-	import Carousel from "../lib/Carousel.svelte"
-	import ModalGallery from "../lib/ModalGallery.svelte"
+	import Gallery from "./Gallery.svelte"
+	import Counter from "./Counter.svelte"
+	import Carousel from "./Carousel.svelte"
+	import ModalGallery from "./ModalGallery.svelte"
 
 	import { product } from "./Data"
 	import { CartStore } from "./Cart"
