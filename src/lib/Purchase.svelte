@@ -15,7 +15,7 @@
 </script>
 
 <div class="purchase" id={purchase.id}>
-	<img src={purchase.thumbnail} alt="" class="purchase__thumbnail" />
+	<img src={purchase.thumbnail.url} alt="" class="purchase__thumbnail" />
 
 	<div class="purchase__info">
 		<p class="purchase__name">{purchase.name}</p>
