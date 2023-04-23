@@ -26,8 +26,6 @@
 			itemsInCart = 0
 		}
 	}
-
-	$: cartClass = `cart ${!expanded ? "" : "cart--expanded"}`
 </script>
 
 <button
@@ -49,29 +47,46 @@
 			fill-rule="nonzero" /></svg>
 </button>
 
-<section class={cartClass} id="cart">
-	<div class="cart__header">
-		<h2 class="heading">Cart</h2>
-	</div>
+{#if expanded}
+	<section class="cart" id="cart">
+		<div class="cart__header">
+			<h2 class="heading">Cart</h2>
+		</div>
 
-	<ul class="cart__contents">
-		{#if $CartStore.cartItems.length > 0}
-			{#each $CartStore.cartItems as purchase}
-				<li class="cart__item">
-					<Purchase {purchase} on:delete={onDelete} />
-				</li>
-			{/each}
+		<ul class="cart__contents">
+			{#if $CartStore.cartItems.length > 0}
+				{#each $CartStore.cartItems as purchase}
+					<li class="cart__item">
+						<Purchase {purchase} on:delete={onDelete} />
+					</li>
+				{/each}
 
-			<button class="button">Checkout</button>
-		{:else}
-			<p class="placeholder">Your cart is empty.</p>
-		{/if}
-	</ul>
-</section>
+				<button class="button">Checkout</button>
+			{:else}
+				<p class="placeholder">Your cart is empty.</p>
+			{/if}
+		</ul>
+	</section>
+{/if}
 
 <style>
 	.cart {
-		display: none;
+		position: absolute;
+		top: 4.75rem;
+		right: 0.5rem;
+		z-index: 20;
+
+		/* Stretch to full screen with 0.5rem of space left */
+		width: min(100% - 1rem, 22.5rem);
+		min-height: 16rem;
+		border-radius: 0.625rem;
+
+		display: grid;
+		align-items: baseline;
+
+		background-color: var(--color-neutral-100);
+
+		box-shadow: 0 0.5rem 1.5rem 0 rgb(0 0 0 / 0.25);
 	}
 
 	.button-icon {
@@ -138,25 +153,6 @@
 	.icon:hover path,
 	.icon:focus path {
 		fill: var(--color-neutral-800);
-	}
-
-	.cart--expanded {
-		position: absolute;
-		top: 4.75rem;
-		right: 0.5rem;
-		z-index: 20;
-
-		/* Stretch to full screen with 0.5rem of space left */
-		width: min(100% - 1rem, 22.5rem);
-		min-height: 16rem;
-		border-radius: 0.625rem;
-
-		display: grid;
-		align-items: baseline;
-
-		background-color: var(--color-neutral-100);
-
-		box-shadow: 0 0.5rem 1.5rem 0 rgb(0 0 0 / 0.25);
 	}
 
 	/* Media query */
