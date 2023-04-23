@@ -2,6 +2,7 @@
 	import Gallery from "../lib/Gallery.svelte"
 	import Counter from "../lib/Counter.svelte"
 	import Carousel from "../lib/Carousel.svelte"
+	import ModalGallery from "../lib/ModalGallery.svelte"
 
 	import { product } from "./Data"
 	import { CartStore } from "./Cart"
@@ -9,7 +10,6 @@
 	let { id, name, price, description, images, thumbnails } = product
 
 	let quantity = 0
-	let openLightbox = false
 	let dialog
 
 	const showModal = () => dialog.showModal()
@@ -58,7 +58,7 @@ It is still kind of buggy -->
 					fill-rule="evenodd" /></svg>
 		</button>
 
-		<Carousel {images} {thumbnails} />
+		<ModalGallery {images} {thumbnails} />
 	</div>
 </dialog>
 
@@ -111,6 +111,21 @@ It is still kind of buggy -->
 	}
 
 	/* Lightbox */
+
+	.dialog:modal {
+		margin: auto;
+		display: grid;
+		place-items: center;
+		overflow: visible;
+
+		border: none;
+
+		background-color: transparent;
+	}
+
+	.dialog:modal::backdrop {
+		background-color: rgb(0 0 0 / 0.75);
+	}
 
 	.lightbox {
 		margin-inline: auto;
@@ -193,21 +208,6 @@ It is still kind of buggy -->
 	.icon:hover path,
 	.icon:focus path {
 		fill: var(--color-primary-400);
-	}
-
-	.dialog:modal {
-		margin: auto;
-		display: grid;
-		place-items: center;
-		overflow: visible;
-
-		border: none;
-
-		background-color: transparent;
-	}
-
-	.dialog:modal::backdrop {
-		background-color: rgb(0 0 0 / 0.75);
 	}
 
 	/* Media query */

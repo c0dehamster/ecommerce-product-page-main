@@ -6,10 +6,11 @@
 
 	export let images = []
 	export let thumbnails = []
+	export let isModal = false
 
 	let emblaApi
 
-	let scrollNext, scrollPrev, scrollTo, jumpTo
+	let scrollNext, scrollPrev, scrollTo, jumpTo, reInit
 
 	const emblaConfig = {
 		options: { loop: true },
@@ -22,6 +23,7 @@
 		scrollPrev = () => emblaApi.scrollPrev()
 		scrollTo = index => emblaApi.scrollTo(index)
 		jumpTo = index => emblaApi.scrollTo(index, true)
+		reInit = () => emblaApi.reInit()
 	}
 
 	$: {
