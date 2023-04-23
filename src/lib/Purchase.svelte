@@ -34,6 +34,7 @@
 <style>
 	.purchase {
 		display: flex;
+		gap: 1rem;
 		justify-content: space-between;
 		align-items: center;
 	}

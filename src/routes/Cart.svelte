@@ -5,14 +5,8 @@
 	let expanded = false
 	let itemsInCart = 0
 
-	const onClick = () => {
-		expanded = !expanded
-	}
-
-	const onDelete = e => {
-		CartStore.removeFromCart(e.detail)
-		console.log($CartStore)
-	}
+	const onClick = () => (expanded = !expanded)
+	const onDelete = e => CartStore.removeFromCart(e.detail)
 
 	$: {
 		if ($CartStore.cartItems.length > 0) {
