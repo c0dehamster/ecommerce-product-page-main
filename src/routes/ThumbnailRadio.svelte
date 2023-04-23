@@ -1,5 +1,5 @@
 <script>
-	import { currentSlide } from "./Carousel"
+	import { CarouselStore } from "./Carousel"
 
 	export let id
 	export let image
@@ -8,7 +8,9 @@
 
 <label
 	for={id}
-	class="thumbnail {$currentSlide === id ? 'thumbnail--active' : ''}"
+	class="thumbnail {$CarouselStore.currentSlide === id
+		? 'thumbnail--active'
+		: ''}"
 	on:click|stopPropagation
 	on:keydown={() => null}>
 	<img src={image} alt="" class="thumbnail__image" />

@@ -1,7 +1,7 @@
 <script>
 	import emblaCarouselSvelte from "embla-carousel-svelte"
 
-	import { currentSlide } from "./Carousel"
+	import { CarouselStore } from "./Carousel"
 
 	export let images = []
 
@@ -21,7 +21,7 @@
 	}
 
 	$: {
-		if (emblaApi) jumpTo($currentSlide)
+		if (emblaApi) jumpTo($CarouselStore.currentSlide)
 	}
 </script>
 

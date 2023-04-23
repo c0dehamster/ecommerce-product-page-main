@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from "svelte"
 
 	import ThumbnailRadio from "./ThumbnailRadio.svelte"
-	import { currentSlide } from "./Carousel"
+	import { CarouselStore } from "./Carousel"
 
 	const dispatch = createEventDispatcher()
 
@@ -14,13 +14,16 @@
 	let currentImage = 0
 
 	$: {
-		currentSlide.set(currentImage)
+		CarouselStore.set({ currentSlide: currentImage })
 	}
 </script>
 
 <div class="gallery">
 	<button class="lightbox" on:click={openLightbox}>
-		<img src={images[$currentSlide]} alt="" class="lightbox__image" />
+		<img
+			src={images[$CarouselStore.currentSlide]}
+			alt=""
+			class="lightbox__image" />
 	</button>
 
 	<fieldset class="thumbnails">

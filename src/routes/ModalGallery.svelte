@@ -1,32 +1,27 @@
 <script>
 	import ThumbnailRadio from "./ThumbnailRadio.svelte"
-	import { currentSlide } from "./Carousel"
+	import { CarouselStore } from "./Carousel"
 
 	export let images
 	export let thumbnails = []
 
 	let currentImageLightbox = 0
 
-	const scrollNext = () => {
-		currentImageLightbox < 3
-			? currentImageLightbox++
-			: (currentImageLightbox = 0)
-	}
-
-	const scrollPrev = () => {
-		currentImageLightbox > 0
-			? currentImageLightbox--
-			: (currentImageLightbox = 3)
-	}
+	const scrollNext = CarouselStore.increment
+	const scrollPrev = CarouselStore.decrement
 
 	$: {
-		currentSlide.set(currentImageLightbox)
+		console.log(currentImageLightbox)
+		CarouselStore.set({ currentSlide: currentImageLightbox })
 	}
 </script>
 
 <div class="gallery">
 	<div class="lightbox">
-		<img src={images[$currentSlide]} alt="" class="lightbox__image" />
+		<img
+			src={images[$CarouselStore.currentSlide]}
+			alt=""
+			class="lightbox__image" />
 		<button class="button button--previous" on:click={scrollPrev}>
 			<svg
 				class="icon"
