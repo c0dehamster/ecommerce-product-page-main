@@ -134,4 +134,15 @@
 
 		border: none;
 	}
+
+	/* Active states */
+
+	.button:hover .icon path,
+	.button:focus .icon path {
+		stroke: var(--color-primary-400);
+	}
+
+	.button::before {
+		display: none;
+	}
 </style>
