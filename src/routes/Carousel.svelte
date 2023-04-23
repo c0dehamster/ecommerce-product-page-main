@@ -25,7 +25,7 @@
 	}
 </script>
 
-<!-- onKeydown is used only to prevent the accessibisity varning -->
+<!-- onKeydown is used only to prevent the accessibisity warning -->
 
 <div class="carousel" on:click|stopPropagation on:keydown>
 	{#if images.length > 0}
@@ -83,8 +83,9 @@
 	}
 
 	.button {
-		padding: 1rem;
-		aspect-ratio: 1;
+		width: 2.625rem;
+		height: 2.625rem;
+
 		border-radius: 50%;
 
 		position: absolute;
@@ -131,26 +132,5 @@
 
 	.button::before {
 		display: none;
-	}
-
-	@media screen and (min-width: 40rem) {
-		.embla__slide {
-			margin-inline-end: 5%;
-		}
-
-		.image {
-			aspect-ratio: 1;
-			border-radius: 1rem;
-		}
-
-		.button--previous {
-			left: 0;
-			transform: translate(-50%, -50%);
-		}
-
-		.button--next {
-			right: 0;
-			transform: translate(50%, -50%);
-		}
 	}
 </style>

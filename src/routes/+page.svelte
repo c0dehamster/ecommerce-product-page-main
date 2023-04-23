@@ -63,8 +63,11 @@ whel initialized in an element with display: none -->
 </dialog>
 
 <section class="product-card">
-	<p class="manufacturer">Sneaker Company</p>
-	<h1 class="heading">{name}</h1>
+	<div class="product-card__header">
+		<p class="manufacturer">Sneaker Company</p>
+		<h1 class="heading">{name}</h1>
+	</div>
+
 	<p class="description">
 		{description}
 	</p>
@@ -110,6 +113,11 @@ whel initialized in an element with display: none -->
 		padding: 1.5rem;
 	}
 
+	.product-card__header {
+		display: grid;
+		gap: 0.5rem;
+	}
+
 	/* Lightbox */
 
 	.dialog:modal {
@@ -146,6 +154,7 @@ whel initialized in an element with display: none -->
 		font-size: var(--font-size-300);
 		text-transform: uppercase;
 		letter-spacing: 1px;
+		font-weight: var(--font-weight-bold);
 
 		color: var(--color-primary-400);
 	}
@@ -186,6 +195,10 @@ whel initialized in an element with display: none -->
 		color: var(--color-primary-400);
 	}
 
+	.price__old {
+		color: var(--color-neutral-200);
+	}
+
 	/* Controls */
 
 	.controls {
@@ -214,6 +227,16 @@ whel initialized in an element with display: none -->
 	/* Media query */
 
 	@media screen and (min-width: 40rem) {
+		.product-card {
+			padding-inline: 0px;
+			padding-block-start: 3.75rem;
+			gap: 2rem;
+		}
+
+		.product-card__header {
+			gap: 1rem;
+		}
+
 		.carousel {
 			display: none;
 		}

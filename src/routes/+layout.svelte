@@ -96,6 +96,7 @@
 
 		.header {
 			height: 7rem;
+			padding-inline: 0px;
 		}
 
 		.header__align-left {
@@ -114,13 +115,13 @@
 
 			grid-template-columns: 1fr 1fr;
 			column-gap: 8rem;
-			align-items: center;
+			align-items: start;
 
 			padding-inline: 3rem;
 		}
 
 		.button--profile {
-			width: 3.5rem;
+			width: 3rem;
 		}
 	}
 </style>
