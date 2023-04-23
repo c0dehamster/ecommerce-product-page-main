@@ -114,6 +114,7 @@ It is still kind of buggy -->
 
 	.dialog:modal {
 		margin: auto;
+		padding-inline: 2.5rem;
 		display: grid;
 		place-items: center;
 		overflow: visible;
