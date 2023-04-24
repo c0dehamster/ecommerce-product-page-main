@@ -90,13 +90,16 @@
 	/* Media query */
 
 	@media screen and (min-width: 50rem) {
+		.app {
+			padding-inline: 1.5rem;
+		}
+
 		.wrapper {
 			padding-block: 5.75rem;
 		}
 
 		.header {
 			height: 7rem;
-			padding-inline: 0px;
 		}
 
 		.header__align-left {
@@ -118,6 +121,10 @@
 			align-items: start;
 
 			padding-inline: 3rem;
+		}
+
+		.header {
+			padding-inline: 0px;
 		}
 
 		.button--profile {
