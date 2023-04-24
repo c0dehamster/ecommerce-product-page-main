@@ -65,6 +65,7 @@
 
 <style>
 	.gallery {
+		max-width: 62vh;
 		display: grid;
 		justify-items: center;
 		gap: 2rem;
