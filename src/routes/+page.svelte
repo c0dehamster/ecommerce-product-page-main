@@ -43,8 +43,15 @@
 <!-- I couldn't use the carousel here due to a bug with it not resizing properly
 whel initialized in an element with display: none -->
 
-<dialog class="dialog" bind:this={dialog}>
-	<div class="lightbox">
+<dialog
+	class="dialog"
+	bind:this={dialog}
+	on:click={close}
+	on:keydown={e => {
+		// Redundant, only to prevent accessibility warning
+		if (e.key === "Escape") close()
+	}}>
+	<div class="lightbox" on:click|stopPropagation on:keydown>
 		<button class="button-icon" on:click={close}>
 			<span class="sr-only">Close</span>
 			<svg
