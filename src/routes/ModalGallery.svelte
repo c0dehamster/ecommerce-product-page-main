@@ -11,7 +11,6 @@
 	const scrollPrev = CarouselStore.decrement
 
 	$: {
-		console.log(currentImageLightbox)
 		CarouselStore.set({ currentSlide: currentImageLightbox })
 	}
 </script>

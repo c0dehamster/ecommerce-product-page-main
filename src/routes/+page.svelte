@@ -25,8 +25,6 @@
 			thumbnail: thumbnails[0],
 			quantity,
 		})
-
-		console.log($CartStore)
 	}
 </script>
 
@@ -41,7 +39,7 @@
 <Gallery {images} {thumbnails} on:openLightbox={showModal} />
 
 <!-- I couldn't use the carousel here due to a bug with it not resizing properly
-whel initialized in an element with display: none -->
+when initialized in an element with display: none -->
 
 <dialog
 	class="dialog"
