@@ -1,7 +1,10 @@
 <script>
+	import { browser } from "$app/environment"
+
 	import Purchase from "./Purchase.svelte"
 	import { CartStore } from "./Cart.js"
 
+	let onCheckout
 	let expanded = false
 	let itemsInCart = 0
 
@@ -21,6 +24,10 @@
 		} else {
 			itemsInCart = 0
 		}
+	}
+
+	if (browser) {
+		onCheckout = () => window.location.reload()
 	}
 </script>
 
@@ -57,7 +64,7 @@
 					</li>
 				{/each}
 
-				<button class="button">Checkout</button>
+				<button class="button" on:click={onCheckout}>Checkout</button>
 			{:else}
 				<p class="placeholder">Your cart is empty.</p>
 			{/if}
