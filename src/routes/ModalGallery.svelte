@@ -55,8 +55,9 @@
 		{#if thumbnails.length > 0}
 			{#each thumbnails as thumbnail}
 				<ThumbnailRadio
-					id={thumbnail.id}
+					value={thumbnail.id}
 					image={thumbnail.url}
+					groupName="currentImageLightbox"
 					bind:group={currentImageLightbox} />
 			{/each}
 		{/if}

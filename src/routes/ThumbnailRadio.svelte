@@ -1,20 +1,21 @@
 <script>
 	import { CarouselStore } from "./Carousel"
 
-	export let id
+	export let value
 	export let image
+	export let groupName
 	export let group
+
+	let id = `${groupName}${value}`
 </script>
 
 <label
 	for={id}
-	class="thumbnail {$CarouselStore.currentSlide === id
+	class="thumbnail {$CarouselStore.currentSlide === value
 		? 'thumbnail--active'
-		: ''}"
-	on:click|stopPropagation
-	on:keydown={() => null}>
+		: ''}">
 	<img src={image} alt="" class="thumbnail__image" />
-	<input {id} value={id} type="radio" class="thumbnail__radio" bind:group />
+	<input {id} {value} type="radio" class="thumbnail__radio" bind:group />
 </label>
 
 <style>

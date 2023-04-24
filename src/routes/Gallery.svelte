@@ -20,6 +20,7 @@
 
 <div class="gallery">
 	<button class="lightbox" on:click={openLightbox}>
+		<span class="sr-only">Open lightbox</span>
 		<img
 			src={images[$CarouselStore.currentSlide]}
 			alt=""
@@ -30,8 +31,9 @@
 		{#if thumbnails.length > 0}
 			{#each thumbnails as thumbnail}
 				<ThumbnailRadio
-					id={thumbnail.id}
+					value={thumbnail.id}
 					image={thumbnail.url}
+					groupName="currentImage"
 					bind:group={currentImage} />
 			{/each}
 		{/if}
